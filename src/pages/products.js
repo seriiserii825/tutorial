@@ -1,13 +1,10 @@
-import React from "react";
-import {Link} from "gatsby"
+import React from "react"
+import Layout from "../components/Layout";
 
 export default function Products () {
   return (
-    <div className="products">
+    <Layout>
       <h2>Products</h2>
-      <ul className="main-menu">
-        <Link to="/">Home</Link> <Link to="/blog">Blog</Link> <Link to="/products">Products</Link>
-      </ul>
-    </div>
+    </Layout>
   )
 }

@@ -1,14 +1,11 @@
 import React from 'react';
-import {Link} from "gatsby"
+import Layout from "../components/Layout";
 
 const errorPage = () => {
   return (
-    <div>
+    <Layout>
       <h1>Page not found, go to <a href="/">Home</a></h1>
-      <ul className="main-menu">
-        <Link to="/">Home</Link> <Link to="/blog">Blog</Link> <Link to="/products">Products</Link>
-      </ul>
-    </div>
+    </Layout>
   );
 };
 export default errorPage;
