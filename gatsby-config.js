@@ -3,8 +3,12 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [`gatsby-plugin-sass`, {
+    resolve: `gatsby-plugin-styled-components`,
+    options: {
+      // Add any options here
+    },
+  },],
 }
