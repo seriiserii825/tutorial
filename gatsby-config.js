@@ -12,10 +12,28 @@ module.exports = {
     person: {name: 'Peter', age: 32}
   },
   /* Your site config here */
-  plugins: [`gatsby-plugin-sass`, {
-    resolve: `gatsby-plugin-styled-components`,
-    options: {
-      // Add any options here
+  plugins: [
+    `gatsby-plugin-sass`, {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
     },
-  },],
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+  ],
 }
