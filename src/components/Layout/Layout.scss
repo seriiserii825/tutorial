@@ -70,6 +70,11 @@ a {
 .text {
   color: darkmagenta;
 }
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1400px;
+}
 .images {
   display: flex;
   justify-content: space-between;
@@ -79,4 +84,34 @@ a {
   width: 30%;
   text-align: center;
   border: 1px solid red;
+}
+.products {
+  &-page {
+    &__title {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    margin-bottom: 4rem;
+    width: 30%;
+    .gatsby-image-wrapper {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  a {
+    text-decoration: underline;
+    color: blue;
+  }
 }

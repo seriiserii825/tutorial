@@ -1,12 +1,51 @@
 import React from "react"
-import Layout from "../components/Layout/Layout";
-import styles from "../components/modules/products.module.css";
+import { graphql, useStaticQuery } from "gatsby"
+import Layout from "../components/Layout/Layout"
+import Image from "gatsby-image"
+import { Link } from "gatsby"
 
-export default function Products () {
+const query = graphql`
+  {
+    allContentfulProduct {
+      nodes {
+        title
+        price
+        slug
+        id
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+const Products = () => {
+  const data = useStaticQuery(query)
+  const products = data.allContentfulProduct.nodes.map(item => {
+    return (
+      <div className="products__item" key={item.title}>
+        <Image fluid={item.image.fluid} />
+        <div className="products__info">
+          <h2 className="products__title">{item.title}</h2>
+          <div className="price">{item.price}</div>
+        </div>
+        <Link to={`/products/${item.slug}`}>More details</Link>
+      </div>
+    )
+  })
+
   return (
-    <Layout>
-      <h2>Products</h2>
-      <p className={styles.text}>Lorem some text for me</p>
-    </Layout>
+    <div className="products">
+      <Layout>
+        <div className="container">
+          <h2 className="products-page__title">Products</h2>
+          <div className="products__wrap">{products}</div>
+        </div>
+      </Layout>
+    </div>
   )
 }
+export default Products

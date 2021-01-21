@@ -5,15 +5,24 @@
  */
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby tutorial',
-    description: 'Some random descriptioin',
-    author: '@johndoe',
-    data: ['item 1', 'item 2'],
-    person: {name: 'Peter', age: 32}
+    title: "Gatsby tutorial",
+    description: "Some random descriptioin",
+    author: "@johndoe",
+    data: ["item 1", "item 2"],
+    person: { name: "Peter", age: 32 },
   },
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-sass`, {
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `2lucm7vs4bzo`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: `7MvQAT4vZkjedxw3Ix50YQF6z1MroFe-MhKtZ8Jgkz8`,
+      },
+    },
+    `gatsby-plugin-sass`,
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here

@@ -21,8 +21,8 @@ const getImages = graphql`
     }
     desktop: file(name: { eq: "desktop" }) {
       childImageSharp {
-        fluid(maxWidth:1600) {
-          ...GatsbyImageSharpFluid
+        fluid(maxWidth: 1900) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
